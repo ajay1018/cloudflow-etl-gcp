@@ -1,25 +1,33 @@
-name: CI
+name: CI (light)
+
 on:
   push:
   pull_request:
+
 jobs:
   pipeline-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install requirements
+
+      # Install only what's needed to run extract/transform
+      - name: Install minimal deps
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install pandas
+
       - name: Run extract
         run: python src/extract/extract_local.py
+
       - name: Run transform
         run: python src/transform/transform_basic.py
+
       - name: Verify processed output exists
         run: |
           test -f data/processed/events.json
