@@ -1,6 +1,6 @@
 # ☁️ CloudFlow ETL (GCP-style, Free Tier)
 
-![CI](https://github.com/ajay1018/cloudflow-etl-gcp/actions/workflows/ci.yml/badge.svg?branch=main)
+![CI](https://github.com/ajay1018/cloudflow-etl-gcp/actions/workflows/ci.yml/badge.svg?branch=main&cache=1759894332)
 
 Airflow-orchestrated ETL built to run locally on free tier. **Extract → Transform → (optional) Load to Postgres**, with GCP-style structure (`dags/`, `src/`, `sql/`, `data/`) and a Docker Compose quickstart. Includes sample data, schema, and a basic DAG to showcase pipeline design for Data Engineering roles.
 
